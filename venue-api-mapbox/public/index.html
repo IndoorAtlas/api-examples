@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IndoorAtlas Venue API example</title>
+
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style type="text/css">
+    body { 
+      margin:0; 
+      padding:0;
+    }
+    #map { 
+      position:absolute; 
+      top:0; 
+      bottom:0;
+      width:100%; 
+      height: 97.5%; 
+      z-index: -1;
+    }
+
+    .floor-btn {
+      background-color: gray; 
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: list-item;
+      font-size: 16px;
+      margin: 10px 2px;
+      width: 75px;
+      height: 50px;
+    }
+
+    #button-container {
+      size: auto;
+      position: absolute;
+      top: 40%;
+      right: 20px;
+    }
+
+    #venue-input {
+      position: absolute;
+      top: 5%;
+      left: 35%;
+      max-width: 60%;
+      display: inline;
+    }
+
+    .active {
+      background-color: #007dff;
+    }
+
+  </style>
+</head>
+<body>
+  <div id='map'></div>
+  <div id="app">
+  <div id="button-container">
+    <button class="floor-btn" v-for="floorplan in floorplans" v-on:click="viewFloorPlan(floorplan)" v-bind:class="{active: floorplan.floorNumber ===  currentFloorPlan.floorNumber}" > 
+      {{ floorplan.floorNumber }} 
+    </button>
+  </div>
+  <div id="venue-input">
+    <div class="form-inline">
+      <input id="venue-input-field" size=40 class="form-control" v-model="currentVenue" placeholder="Input Venue ID">     
+      <button type="submit" class="btn btn-primary" v-on:click="showCurrentVenue">Update Venue</button>                
+    </div>
+    </div>
+  </div>
+  <script src="floorplan-view.js"></script>
+  <script src="mapbox-token.js"></script>
+  <script>
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9'
+    });
+    const floorPlanView = new FloorPlanView(map);
+
+  </script>
+</body>
+</html>
