@@ -6,10 +6,6 @@ These examples showcase IndoorAtlas Positioning API which is a lightweight REST 
 
 Getting started requires you to set up a free developer account and fingerprint your indoor venue using the [IndoorAtlas MapCreator 2](https://play.google.com/store/apps/details?id=com.indooratlas.android.apps.jaywalker).
 
-* [Getting Started](#getting-started)
-    * [Set up your account](#set-up-your-account)
-* [Documentation](#documentation)
-
 ## Getting Started
 
 ### Set up your account
