@@ -16,16 +16,16 @@
       height: 100%;
       z-index: -1;
     }
-    #map { 
-      position:absolute; 
-      top:0; 
+    #map {
+      position:absolute;
+      top:0;
       bottom:0;
-      width:100%; 
-      height: 97.5%; 
+      width:100%;
+      height: 97.5%;
     }
 
     .floor-btn {
-      background-color: gray; 
+      background-color: gray;
       border: none;
       color: white;
       padding: 15px 32px;
@@ -68,14 +68,14 @@
   <div id='map'></div>
   <div id="app">
   <div id="button-container" class="map-overlay">
-    <button class="floor-btn" v-for="floorplan in floorplans" v-on:click="viewFloorPlan(floorplan)" v-bind:class="{active: floorplan.floorNumber ===  currentFloorPlan.floorNumber}" > 
-      {{ floorplan.floorNumber }} 
+    <button class="floor-btn" v-for="floorplan in floorplans" v-on:click="viewFloorPlan(floorplan)" v-bind:class="{active: floorplan.floorNumber ===  currentFloorPlan.floorNumber}" >
+      {{ floorplan.floorNumber }}
     </button>
   </div>
   <div id="venue-input">
     <div class="form-inline" class="map-overlay">
-      <input id="venue-input-field" size=40 class="form-control" v-model="currentVenue" placeholder="Input Venue ID">     
-      <button type="submit" class="btn btn-primary" v-on:click="showCurrentVenue">Update Venue</button>                
+      <input id="venue-input-field" size=40 class="form-control" v-model="currentVenue" placeholder="Input Venue ID">
+      <button type="submit" class="btn btn-primary" v-on:click="showCurrentVenue">Update Venue</button>
     </div>
     </div>
   </div>
