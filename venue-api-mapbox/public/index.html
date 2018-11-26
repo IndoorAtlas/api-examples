@@ -87,6 +87,15 @@
     style: 'mapbox://styles/mapbox/streets-v9'
     });
     const floorPlanView = new FloorPlanView(map);
+    map.on('click', (e) => {
+      const fp = floorPlanView.getCurrentFloorPlan();
+      alert(JSON.stringify({
+        latitude: e.lngLat.lat,
+        longitude: e.lngLat.lng,
+        floorNumber: fp && fp.floorNumber,
+        floorPlanId: fp && fp.id
+      }));
+    });
 
   </script>
 </body>

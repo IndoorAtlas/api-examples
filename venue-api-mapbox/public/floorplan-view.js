@@ -55,4 +55,8 @@ function FloorPlanView(map) {
   }
 
   const toLngLat = (c) => [c.lon, c.lat];
+
+  this.getCurrentFloorPlan = () => {
+    return app.currentFloorPlan;
+  };
 }
