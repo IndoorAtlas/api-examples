@@ -12,11 +12,8 @@
 
 * Create new API key in the IndoorAtlas developer console and enable the "Positioning API" scope when creating
 * Run `npm install` in the root directory
-* Create `mapbox-token.js` javascript file in the root of the directory with the following content
+* Add your Mapbox token in index.html, search for "mapboxgl.accessToken"
 
-```javascript
-mapboxgl.accessToken = 'your-mapbox-token';
-```
 
 
 * Run the dummy backend proxy with `IA_API_KEY=<your-indooratlas-apikey> node venue-proxy.js ` setting `<your-indooratlas-apikey>`. For example
